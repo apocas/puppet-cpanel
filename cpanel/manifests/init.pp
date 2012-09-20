@@ -35,7 +35,7 @@ class cpanel {
                     refreshonly => true
         }
 
-	   exec { "install_softaculous":
+	    exec { "install_softaculous":
                 cwd => "/tmp",
                     command => "/usr/bin/wget -N http://files.softaculous.com/install.sh && sh install.sh",
                     creates => "/var/softaculous/zikula/",
@@ -61,7 +61,8 @@ class cpanel {
                 cwd => "/tmp",
                     command => "/scripts/installimagemagick",
                     creates => "/usr/include/ImageMagick",
-                            timeout => 3600,
+                    timeout => 3600,
                     require => Exec['install_cpanel']
         }
+        
 }
